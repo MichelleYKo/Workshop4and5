@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class UghWorld extends React.Component {
+class Feed extends React.Component {
   render() {
     return (
-      <p>ugh, world</p>
+
+      <div className ="fb-status-update-entry panel panel-default">
+      </div>
     );
   }
 }
 
 ReactDOM.render(
-  <UghWorld />,
+  <Feed />,
   document.getElementById('fb-feed')
 );
