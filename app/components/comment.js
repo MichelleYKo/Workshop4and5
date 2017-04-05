@@ -1,6 +1,7 @@
 import React from 'react';
+import {unixTimeToString} from 'app/util.js'
 
-export default class CommentEntry extends React.Component {
+export default class Comment extends React.Component {
   render() {
     return (
       <div>
@@ -8,19 +9,9 @@ export default class CommentEntry extends React.Component {
           PIC
         </div>
         <div className="media-body">
-          <div className="input-group">
-            <input type="text" className="form-control"
-                   placeholder="Write a comment..." />
-            <span className="input-group-btn">
-              <button className="btn btn-default" type="button">
-                <span className="glyphicon glyphicon-camera"></span>
-              </button>
-              <button className="btn btn-default" type="button">
-                <span className="glyphicon glyphicon-heart">
-                </span>
-              </button>
-            </span>
-          </div>
+          <a href="#">{this.props.author.fullName}</a> {this.props.children}
+          <br /><a href="#">Like</a> · <a href="#">Reply</a> ·
+            {unixTimeToString(this.props.postDate)}
         </div>
       </div>
     )
