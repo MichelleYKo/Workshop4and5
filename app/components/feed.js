@@ -1,7 +1,7 @@
-import {getFeedData} from '../server';
 import React from 'react';
 import FeedItem from './feeditem';
 import StatusUpdateEntry from './statusupdateentry';
+import {getFeedData} from '../server';
 
 export default class Feed extends React.Component {
   constructor(props) {
@@ -19,17 +19,17 @@ export default class Feed extends React.Component {
   }
 
   render() {
-  return (
-    <div>
-      <StatusUpdateEntry />
-      {this.state.contents.map((id) => {
-          return (
-            <FeedItem key={feedItem._id} data={feedItem} />
-          );
-      })}
-    </div>
-  )
-}
+    return (
+      <div>
+        <StatusUpdateEntry />
+        {this.state.contents.map((feedItem) => {
+            return (
+              <FeedItem key={feedItem._id} data={feedItem} />
+            );
+        })}
+      </div>
+    )
+  }
 
 componentDidMount() {
   getFeedData(this.props.user, (feedData) => {
